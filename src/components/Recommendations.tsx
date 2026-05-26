@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useRef } from "react";
-import Image from "next/image";
 import { motion, AnimatePresence, useScroll, useTransform, MotionValue } from "framer-motion";
 
 const Character = ({ children, progress, range }: { children: string, progress: MotionValue<number>, range: [number, number] }) => {
@@ -182,7 +181,7 @@ export default function Recommendations() {
 
               {/* Quote Text (reduced size and increased line-height as requested) */}
               <blockquote className="text-lg md:text-xl lg:text-[1.8rem] xl:text-[2rem] font-light leading-[2.2rem] md:leading-[2.5rem] lg:leading-[3.2rem] xl:leading-[2.5rem] text-white tracking-wide max-w-5xl">
-                "{current.quote}"
+                &ldquo;{current.quote}&rdquo;
               </blockquote>
             </motion.div>
           </AnimatePresence>
