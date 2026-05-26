@@ -15,7 +15,7 @@ export default function Footer() {
         <ul className="col-span-2 md:col-span-1 flex justify-center gap-8 list-none m-0 p-0">
           <li><a href="/work" className="text-[13px] font-normal text-white/70 no-underline transition-colors duration-250 hover:text-white">Work</a></li>
           <li><a href="/about" className="text-[13px] font-normal text-white/70 no-underline transition-colors duration-250 hover:text-white">About Me</a></li>
-          <li><a href="/contact" className="text-[13px] font-normal text-white/70 no-underline transition-colors duration-250 hover:text-white">Contact</a></li>
+          <li><a href="/insights" className="text-[13px] font-normal text-white/70 no-underline transition-colors duration-250 hover:text-white">Insights</a></li>
         </ul>
 
         <span className="hidden md:block w-4 h-4 relative opacity-30 shrink-0 before:content-[''] before:absolute before:bg-white before:w-[1px] before:h-full before:left-1/2 before:top-0 after:content-[''] after:absolute after:bg-white after:w-full after:h-[1px] after:top-1/2 after:left-0"></span>
