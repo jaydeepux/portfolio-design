@@ -30,7 +30,6 @@ export default function ScrollyCanvas() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [imagesPreloaded, setImagesPreloaded] = useState(false);
   const [wordsFinished, setWordsFinished] = useState(false);
-  const [loadedCount, setLoadedCount] = useState(0);
 
   // Word list and cycling logic
   const words = ["Hello", "Namaste", "Nǐ Hǎo", "Marhaba", "Bonjour", "Hallo", "こんにちは", "Grüezi", "Hello"];
@@ -63,21 +62,16 @@ export default function ScrollyCanvas() {
 
   useEffect(() => {
     const preloadImages = async () => {
-      let currentLoadedCount = 0;
       const promises = Array.from({ length: numFrames }, (_, i) => {
         return new Promise<HTMLImageElement>((resolve) => {
           const img = new Image();
           const paddedIndex = i.toString().padStart(3, "0");
           img.src = `/sequence/frame_${paddedIndex}_delay-0.07s.webp`;
           img.onload = () => {
-            currentLoadedCount++;
-            setLoadedCount(currentLoadedCount);
             resolve(img);
           };
           img.onerror = () => {
             console.error(`Failed to load image index ${i}`);
-            currentLoadedCount++;
-            setLoadedCount(currentLoadedCount);
             resolve(img); 
           };
         });
@@ -193,18 +187,18 @@ export default function ScrollyCanvas() {
     },
     exit: {
       top: "-150vh",
-      transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1], delay: 0.2 }
+      transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] as const, delay: 0.2 }
     }
   };
 
   const curve = {
     initial: {
       d: initialPath,
-      transition: { duration: 0.7, ease: [0.76, 0, 0.24, 1] }
+      transition: { duration: 0.7, ease: [0.76, 0, 0.24, 1] as const }
     },
     exit: {
       d: targetPath,
-      transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1], delay: 0.2 }
+      transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] as const, delay: 0.2 }
     }
   };
 
